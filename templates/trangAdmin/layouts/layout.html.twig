@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/php-project/aot-shop/assets/vendor/bootstrap/css/bootstrap.min.css" />
+
+        <!-- Custom css -->
+        <link rel="stylesheet" href="/php-project/aot-shop/assets/trangAdmin/css/style.css" />
+
+        <!-- Fontawesome CSS CDN -->
+        <script src="https://kit.fontawesome.com/c61e26ca93.js"></script>
+
+        <!-- Animate CSS-->
+        <link rel="stylesheet" href="/php-project/aot-shop/assets/vendor/animate/animate.css">
+
+        <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
+        <title>AoT | 
+            {% block title %}
+            {% endblock %}
+        </title>
+        <!-- End block title -->
+
+    </head>
+
+    <body>
+        
+        <!-- HEADER -->
+        <header>
+            {{ include('trangAdmin/layouts/includes/header.html.twig') }}
+        </header>
+        <!-- END HEADER -->
+
+        <!-- BODY -->
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- SIDEBAR  -->
+                <div class="col-md-2">
+                    {{ include('trangAdmin/layouts/includes/sidebar.html.twig') }}
+                </div>
+                <!-- END SIDEBAR  -->
+
+                <!-- MAIN  -->
+                <div class="col-md-10">
+                    <main role="main">
+
+                        <div class="headline">
+                            <!-- Block headline - Đục lỗ trên giao diện bố cục chung, đặt tên là `headline` -->
+                            {% block headline %}
+                            {% endblock %}
+                            <!-- End block headline -->
+                        </div>
+
+                            <hr />
+
+                        <div class="content">
+                            <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+                            {% block content %}
+                            {% endblock %}
+                            <!-- End block content -->
+                        </div>
+
+                    </main>
+                </div>
+                <!-- END MAIN  -->
+
+            </div>
+        </div>
+        <!-- END BODY -->
+
+        <!-- FOOTER -->
+            <footer>
+                {{ include('trangAdmin/layouts/includes/footer.html.twig') }}
+            </footer>
+        <!-- END FOOTER -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/php-project/aot-shop/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/php-project/aot-shop/assets/vendor/popperjs/popper.min.js"></script>
+    <script src="/php-project/aot-shop/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom script-->
+    <script src="/php-project/aot-shop/assets/trangAdmin/js/app.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,51 @@
+body {
+    padding: 0;
+    margin: 0;
+  }
+  #navbar {
+    background-color: #2d3436;
+  }
+  .navbar-brand:hover {
+    color: #c0392b;
+  }
+  footer {
+    height: 40px;
+    background-color: #2d3436;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+  }
+  
+  /* 
+  --- SIDEBAR --- 
+  */
+  .sidebar {
+    height: 100vh;
+    box-shadow: 5px 0px 5px grey;
+    text-align: left;
+    margin-top: 1%;
+  }
+  /* .sidebar ul li a
+  {
+      background-color: #2d3436;
+  } */
+  .sidebar ul li {
+    display: block;
+  }
+  .sidebar .nav-link.active {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    background-color: #e74c3c;
+  }
+  
+  .headline {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 40px;
+  }
+  
+  .content {
+    height: 100vh;
+  }
+  
