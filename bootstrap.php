@@ -7,3 +7,11 @@ $loader = new Twig_Loader_Filesystem(__DIR__.'/templates');
 
  // Khởi tạo Twig
 $twig = new Twig_Environment($loader);
+
+$twig->addFilter( new Twig_SimpleFilter('cast_to_array', function ($stdClassObject) {
+    $response = array();
+    foreach ($stdClassObject as $key => $value) {
+        $response[] = array($key, $value);
+    }
+    return $response;
+}));
