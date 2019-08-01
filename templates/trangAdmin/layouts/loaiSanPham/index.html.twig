@@ -41,7 +41,7 @@ Loại Sản PHẩm
                 </a>
 
                 <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `lspMa` -->
-                <a href="xoa.php?lspMa={{ lsp.lspMa }}" class="btn btn-danger">
+                <a onClick="javascript: return confirm('Bạn có muốn xóa dòng này?');" href="xoa.php?lspMa={{ lsp.lspMa }}" class="btn btn-danger">
                     <i class="far fa-trash-alt"></i> Xóa
                 </a>
             </td>
