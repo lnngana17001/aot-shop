@@ -5,9 +5,6 @@ body {
   #navbar {
     background-color: #2d3436;
   }
-  .navbar-brand:hover {
-    color: #c0392b;
-  }
   footer {
     height: 40px;
     background-color: #2d3436;

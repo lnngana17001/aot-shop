@@ -9,14 +9,14 @@ Loại Sản PHẩm
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Loại Sản Phẩm
+<span class="animated fadeIn">Loại Sản Phẩm</span>
 {% endblock %}
 {# End Nội dung trong block headline #}
 
 {# Nội dung trong block content #}
 {% block content %}
 <!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
-<a href="create.php" class="btn btn-primary">
+<a href="them.php" class="btn btn-primary animated fadeIn">
     <i class="fas fa-plus"></i> Thêm mới
 </a>
 <table class="table table-bordered table-hover mt-2">
@@ -31,17 +31,17 @@ Loại Sản Phẩm
     <tbody>
         {% for lsp in ds_loaisanpham %}
         <tr>
-            <td>{{ lsp.lspMa }}</td>
-            <td>{{ lsp.lspTen }}</td>
-            <td>{{ lsp.lspMoTa }}</td>
-            <td>
+            <td class="animated fadeIn">{{ lsp.lspMa }}</td>
+            <td class="animated fadeIn">{{ lsp.lspTen }}</td>
+            <td class="animated fadeIn">{{ lsp.lspMoTa }}</td>
+            <td class="animated fadeIn">
                 <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `lspMa` -->
-                <a href="edit.php?lspMa={{ lsp.lspMa }}" class="btn btn-warning">
+                <a href="sua.php?lspMa={{ lsp.lspMa }}" class="btn btn-warning">
                     <i class="fas fa-edit"></i> Sửa
                 </a>
 
                 <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `lspMa` -->
-                <a href="delete.php?lspMa={{ lsp.lspMa }}" class="btn btn-danger">
+                <a href="xoa.php?lspMa={{ lsp.lspMa }}" class="btn btn-danger">
                     <i class="far fa-trash-alt"></i> Xóa
                 </a>
             </td>
