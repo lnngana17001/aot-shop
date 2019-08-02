@@ -10,11 +10,11 @@ $conn = OpenCon();
 
 // 2. Chuẩn bị câu truy vấn $sql
 $sqlQuery = <<<EOT
-select sp.sp_ma, sp.sp_ten, sp.sp_gia, sp.sp_mota_ngan, sp.sp_mota_chitiet, sp.sp_ngaycapnhat, sp.sp_soluong, lsp.lsp_ten, nsx.nsx_ten, km.km_ten
-from `sanpham` as sp
-inner join `loaisanpham` as lsp on sp.sp_ma = lsp.lsp_ma
-inner join `nhasanxuat` as nsx on sp.sp_ma = nsx.nsx_ma
-inner join `khuyenmai` as km on sp.sp_ma = km.km_ma;
+select sp_ma, sp_ten, sp_gia, sp_mota_ngan, sp_mota_chitiet, sp_ngaycapnhat, sp_soluong, lsp.lsp_ten, nsx.nsx_ten, km.km_ten
+from sanpham as sp 
+join aotshop.loaisanpham as lsp on sp.lsp_ma = lsp.lsp_ma
+join aotshop.nhasanxuat as nsx on sp.nsx_ma = nsx.nsx_ma
+join aotshop.khuyenmai as km on sp.km_ma = km.km_ma
 EOT;
 
 

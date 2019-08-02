@@ -18,19 +18,64 @@ Thêm mới Sản phẩm
 
 <form name="frmSanPham" id="frmSanPham" method="post" action="/php-project/aot-shop/trangAdmin/sanPham/them.php">
     <div class="form-group">
-        <label for="sp_ma">Mã nhà sản xuất</label>
-        <input type="text" class="form-control" id="sp_ma" name="sp_ma" placeholder="Mã nhà sản xuất" readonly>
-        <small id="sp_maHelp" class="form-text text-muted">Mã nhà sản xuất không được hiệu chỉnh.</small>
+        <label for="sp_ma">Mã sản phẩm</label>
+        <input type="text" class="form-control" id="sp_ma" name="sp_ma" placeholder="Mã sản phẩm" readonly>
+        <small id="sp_maHelp" class="form-text text-muted">Mã sản phẩm không được hiệu chỉnh.</small>
     </div>
-    <div class="formgroup">
+
+    <div class="form-group">
+        <label for="sp_ten">Tên sản phẩm</label>
+        <input type="text" required class="form-control" id="sp_ten" name="sp_ten" placeholder="Tên sản phẩm">
+    </div>
+
+    <div class="form-group">
+        <label for="sp_gia">Giá sản phẩm</label>
+        <input type="number" required class="form-control" id="sp_gia" name="sp_gia" placeholder="Giá sản phẩm">
+    </div>
+
+    <div class="form-group">
+        <label for="sp_motangan">Mô tả sản phẩm</label>
+        <input type="text" required class="form-control" id="sp_motangan" name="sp_motangan" placeholder="Mô tả sản phẩm">
+    </div>
+
+    <div class="form-group">
+        <label for="sp_motachitiet">Chi tiết sản phẩm</label>
+        <textarea class="form-control rounded-0" required id="sp_motachitiet" name="sp_motachitiet" placeholder="Chi tiết sản phẩm"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="sp_soluong">Số lượng (nhập số)</label>
+        <input type="number" required class="form-control" id="sp_soluong" name="sp_soluong" placeholder="Số lượng sản phẩm">
+    </div>
+
+    <div class="form-group">
         <label for="lsp_ten">Loại sản phẩm</label>
-        <select class="form-control">
+        <select class="form-control" required id="lsp_ten" name="lsp_ten">
             {% for lsp in danhsachtenloaisanpham %}
             <option value="{{ lsp }}">{{ lsp }}</option>
             {% endfor %}
         </select>
     </div>
+
+    <div class="form-group">
+        <label for="nsx_ten">Nhà sản xuất</label>
+        <select class="form-control" required id="nsx_ten" name="nsx_ten">
+            {% for nsx in danhsachtennhasanxuat %}
+            <option value="{{ nsx }}">{{ nsx }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="km_ten">Khuyến mãi</label>
+        <select class="form-control" required id="km_ten" name="km_ten">
+            {% for km in danhsachtenkhuyenmai %}
+            <option value="{{ km }}">{{ km }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <button class="btn btn-primary" name="btnThem">Thêm vào CSDL</button>
+    <div style="padding-top: 60px;"></div>
 </form>
 {% endblock %}
 {# End Nội dung trong block content #}

@@ -11,13 +11,13 @@
         <link rel="stylesheet" href="/php-project/aot-shop/assets/vendor/bootstrap/css/bootstrap.min.css" />
 
         <!-- Custom css -->
-        <link rel="stylesheet" href="/php-project/aot-shop/assets/trangAdmin/css/style.css" />
+        <link rel="stylesheet" href="/php-project/aot-shop/assets/trangAdmin/css/style.css" rel="stylesheet"/>
 
         <!-- Fontawesome CSS -->
         <link href="/php-project/aot-shop/assets/vendor/fontawesome/css/all.css" rel="stylesheet">
 
         <!-- Animate CSS-->
-        <link rel="stylesheet" href="/php-project/aot-shop/assets/vendor/animate/animate.css">
+        <link rel="stylesheet" href="/php-project/aot-shop/assets/vendor/animate/animate.css" rel="stylesheet"/>
 
         <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
         <title>AoT | 
@@ -29,56 +29,75 @@
     </head>
 
     <body>
-        
+    <div class="container-fluid" id="pageContentWrapper">
         <!-- HEADER -->
-        <header>
-            {{ include('trangAdmin/layouts/includes/header.html.twig') }}
-        </header>
-        <!-- END HEADER -->
-
-        <!-- BODY -->
-        <div class="container-fluid">
-            <div class="row">
-
-                <!-- SIDEBAR  -->
-                <div class="col-md-2">
-                    {{ include('trangAdmin/layouts/includes/sidebar.html.twig') }}
-                </div>
-                <!-- END SIDEBAR  -->
-
-                <!-- MAIN  -->
-                <div class="col-md-10">
-                    <main role="main">
-
-                        <div class="headline">
-                            <!-- Block headline - Đục lỗ trên giao diện bố cục chung, đặt tên là `headline` -->
-                            {% block headline %}
-                            {% endblock %}
-                            <!-- End block headline -->
-                        </div>
-
-                            <hr />
-
-                        <div class="content">
-                            <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
-                            {% block content %}
-                            {% endblock %}
-                            <!-- End block content -->
-                        </div>
-
-                    </main>
-                </div>
-                <!-- END MAIN  -->
-
+        <div class="row">
+            <div class="col-md-12">
+                <header> 
+                    {{ include('trangAdmin/layouts/includes/header.html.twig') }}
+                </header>
             </div>
         </div>
-        <!-- END BODY -->
+        <!-- END HEADER -->
 
-        <!-- FOOTER -->
-            <footer>
+        <!-- MIDDLE -->
+        <div class="row" id="middle">
+
+            <!-- SIDEBAR  -->
+            <div class="col-md-2">
+                <aside>
+                {{ include('trangAdmin/layouts/includes/sidebar.html.twig') }}
+                </aside>
+            </div>
+            <!-- END SIDEBAR  -->
+
+            <!-- MAIN  -->
+            <div class="col-md-10">
+                <main role="main">
+
+                    <div class="headline">
+                        <!-- Block headline - Đục lỗ trên giao diện bố cục chung, đặt tên là `headline` -->
+                        {% block headline %}
+                        {% endblock %}
+                        <!-- End block headline -->
+                    </div>
+
+                        <hr />
+
+                    <div class="content">
+                        <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+                        {% block content %}
+                        {% endblock %}
+                        <!-- End block content -->
+                    </div>
+                </main>
+            </div>
+            <!-- END MAIN  -->
+
+        </div>
+        <!-- END MIDDLE -->
+    </div>
+
+    <div class="container-fluid" id="footerwrapper">
+        <div class="row">
+            <div class="col-md-12">
+                 <!-- FOOTER -->
+                <footer>
                 {{ include('trangAdmin/layouts/includes/footer.html.twig') }}
-            </footer>
-        <!-- END FOOTER -->
+                </footer>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+    </div>
+    
+
+        
+
+        
+
+       
+
+      
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

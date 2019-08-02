@@ -38,36 +38,43 @@ if(isset($_POST['btnThem']))
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
     $tenspmoi = $_POST['sp_ten'];
     $giaspmoi = $_POST['sp_gia'];
-    $motaspmoi = $_POST['spMoTaNgan'];
-    $chitietspmoi = $_POST['spMoTaChiTiet'];
-    $ngaycapnhatspmoi = $_POST['spNgayCapNhat'];
-    $soluongspmoi = $_POST['spSoLuong'];
-    $tenloaisanpham = $_POST['lspTen'];
-    $tennhasanxuat = $_POST['nsxTen'];
-    $tenkhuyenmai = $_POST['kmTen'];
+    $motaspmoi = $_POST['sp_motangan'];
+    $chitietspmoi = $_POST['sp_motachitiet'];
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $ngaycapnhatspmoi = date('Y/m/d H:i:s');
+    $soluongspmoi = $_POST['sp_soluong'];
+    $tenloaisanpham = $_POST['lsp_ten'];
+    $tennhasanxuat = $_POST['nsx_ten'];
+    $tenkhuyenmai = $_POST['km_ten'];
 
-    if(!empty($tenspmoi) && !empty($giaspmoi) && !empty($motaspmoi) && !empty($chitietspmoi) 
-    && !empty($ngaycapnhatspmoi) && !empty($soluongspmoi) && !empty($tenloaisanpham) && !empty($tennhasanxuat) && !empty($tenkhuyenmai))
-    {
+ 
         // Câu lệnh INSERT
-        $maloaisanpham = mysqli_query($conn, "SELECT lsp_ma FROM `loaisanpham` WHERE lsp_ten = '$tenloaisanpham';");
-        $manhasanxuat = mysqli_query($conn, "SELECT nsx_ma FROM `nhasanxuat` WHERE nsx_ten = '$tennhasanxuat';");
-        $makhuyenmai = mysqli_query($conn, "SELECT km_ma FROM `khuyenmai` WHERE km_ten = '$tenkhuyenmai';");
-        $sql = <<<EOT
-        INSERT INTO `sanpham` (`sp_ten`, `sp_gia`, `sp_mota_ngan`, `sp_mota_chitiet`, `sp_ngaycapnhat`, `sp_soluong`, `lsp_ma`, `nsx_ma`, `km_ma`) VALUES
-	($tenspmoi, $giaspmoi, $motaspmoi, $chitietspmoi, $ngaycapnhatspmoi, $soluongspmoi, $maloaisanpham, $manhasanxuat, $makhuyenmai);
+        $result = mysqli_query($conn, "SELECT lsp_ma FROM `loaisanpham` WHERE lsp_ten = '$tenloaisanpham';");
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        {
+            $maloaisanpham = $row['lsp_ma'];
+        }
+        $result = mysqli_query($conn, "SELECT nsx_ma FROM `nhasanxuat` WHERE nsx_ten = '$tennhasanxuat';");
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        {
+            $manhasanxuat = $row['nsx_ma'];
+        }
+        $result = mysqli_query($conn, "SELECT km_ma FROM `khuyenmai` WHERE km_ten = '$tenkhuyenmai';");
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        {
+            $makhuyenmai = $row['km_ma'];
+        }
+        
+$sql = <<<EOT
+INSERT INTO `sanpham` (`sp_ten`, `sp_gia`, `sp_mota_ngan`, `sp_mota_chitiet`, `sp_ngaycapnhat`, `sp_soluong`, `lsp_ma`, `nsx_ma`, `km_ma`)
+VALUES('$tenspmoi', $giaspmoi, '$motaspmoi', '$chitietspmoi', '$ngaycapnhatspmoi', $soluongspmoi, '$maloaisanpham', '$manhasanxuat', '$makhuyenmai');
 EOT;
+
         // Thực thi INSERT
         mysqli_query($conn, $sql);
 
         // Sau khi cập nhật dữ liệu, tự động điều hướng về trang Danh sách
-        header('location:index.php');
-    }
-    else
-    {
-        echo '<script type="text/javascript">alert("Thông tin bạn vừa nhập có vẻ có sai sót, mời nhập lại.");</script>';
-
-    } 
+        header('location:index.php'); 
     
 }
 
@@ -75,5 +82,4 @@ EOT;
 
 // Đóng kết nối
 CloseCon($conn);
-echo $twig->render('/trangAdmin/layouts/sanPham/them.html.twig', ['danhsachtenloaisanpham' => $dsten_lsp],
- ['danhsachtennhasanxuat' => $dsten_nsx], ['danhsachtenkhuyenmai' => $dsten_km]);
+echo $twig->render('/trangAdmin/layouts/sanPham/them.html.twig', ['danhsachtenloaisanpham' => $dsten_lsp, 'danhsachtennhasanxuat' => $dsten_nsx, 'danhsachtenkhuyenmai' => $dsten_km]);

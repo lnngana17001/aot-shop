@@ -35,4 +35,4 @@ if(isset($_POST['btnThem']))
     } 
     
 }
-echo $twig->render('/trangAdmin/layouts/NhaSanXuat/them.html.twig');
+echo $twig->render('/trangAdmin/layouts/nhaSanXuat/them.html.twig');
