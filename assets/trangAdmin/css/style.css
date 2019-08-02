@@ -1,26 +1,32 @@
 body {
     padding: 0;
     margin: 0;
+    height: 100%;
   }
   #navbar {
     background-color: #2d3436;
   }
+
   footer {
     height: 40px;
     background-color: #2d3436;
     text-align: center;
     line-height: 40px;
     color: white;
+    margin-top:auto; position:absolute;
+    bottom:0;
+    width: 100%;
   }
   
   /* 
   --- SIDEBAR --- 
   */
   .sidebar {
-    height: 100vh;
+    /* height: 100vh; */
     box-shadow: 5px 0px 5px grey;
     text-align: left;
     margin-top: 1%;
+    font-size: 15px;
   }
   /* .sidebar ul li a
   {
@@ -41,8 +47,8 @@ body {
     padding-top: 10px;
     font-size: 40px;
   }
-  
+/*   
   .content {
-    height: 100vh;
-  }
+    height: 100%;
+  } */
   

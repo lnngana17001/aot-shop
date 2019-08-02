@@ -1,0 +1,32 @@
+{# Kế thừa layout backend #}
+{% extends "/trangAdmin/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới Hình thức thanh toán
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới Hình thức thanh toán
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+
+<form name="frmHinhThucThanhToan" id="frmHinhThucThanhToan" method="post" action="/php-project/aot-shop/trangAdmin/hinhThucThanhToan/them.php">
+    <div class="form-group">
+        <label for="httt_ma">Mã Hình thức thanh toán</label>
+        <input type="text" class="form-control" id="httt_ma" name="httt_ma" placeholder="Mã Hình thức thanh toán" readonly>
+        <small id="httt_maHelp" class="form-text text-muted">Mã Hình thức thanh toán không được hiệu chỉnh.</small>
+    </div>
+    <div class="form-group">
+        <label for="httt_ten">Tên Hình thức thanh toán</label>
+        <input type="text" class="form-control" id="httt_ten" name="httt_ten" placeholder="Tên Hình thức thanh toán">
+    </div>
+    <button class="btn btn-primary" name="btnThem">Thêm vào CSDL</button>
+</form>
+{% endblock %}
+{# End Nội dung trong block content #}
