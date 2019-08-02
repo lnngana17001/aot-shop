@@ -1,0 +1,36 @@
+{# Kế thừa layout backend #}
+{% extends "/trangAdmin/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới Sản phẩm
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới Sản phẩm
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+
+<form name="frmSanPham" id="frmSanPham" method="post" action="/php-project/aot-shop/trangAdmin/sanPham/them.php">
+    <div class="form-group">
+        <label for="sp_ma">Mã nhà sản xuất</label>
+        <input type="text" class="form-control" id="sp_ma" name="sp_ma" placeholder="Mã nhà sản xuất" readonly>
+        <small id="sp_maHelp" class="form-text text-muted">Mã nhà sản xuất không được hiệu chỉnh.</small>
+    </div>
+    <div class="formgroup">
+        <label for="lsp_ten">Loại sản phẩm</label>
+        <select class="form-control">
+            {% for lsp in danhsachtenloaisanpham %}
+            <option value="{{ lsp }}">{{ lsp }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-primary" name="btnThem">Thêm vào CSDL</button>
+</form>
+{% endblock %}
+{# End Nội dung trong block content #}

@@ -1,0 +1,67 @@
+{# Kế thừa layout backend #}
+{% extends "/trangAdmin/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Sản phẩm
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+<span class="animated fadeIn">Sản phẩm</span>
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
+<a href="them.php" class="btn btn-primary animated fadeIn">
+    <i class="fas fa-plus"></i> Thêm mới
+</a>
+<table class="table table-bordered table-hover mt-2">
+    <thead class="thead-dark">
+        <tr>
+            <th>Mã Sản phẩm</th>
+            <th>Tên Sản phẩm</th>
+            <th>Giá Sản phẩm</th>
+            <th>mô tả Sản phẩm</th>
+            <th>Chi tiết Sản phẩm</th>
+            <th>Ngày cập nhật</th>
+            <th>Số lượng Sản phẩm</th>
+            <th>Loại sản phẩm</th>
+            <th>Nhà sản xuất</th>
+            <th>Khuyến mãi</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sp in ds_sanpham %}
+        <tr>
+            <td class="animated fadeIn">{{ sp.spMa }}</td>
+            <td class="animated fadeIn">{{ sp.spTen }}</td>
+            <td class="animated fadeIn">{{ sp.spGia }}</td>
+            <td class="animated fadeIn">{{ sp.spMoTaNgan }}</td>
+            <td class="animated fadeIn">{{ sp.spMoTaChiTiet }}</td>
+            <td class="animated fadeIn">{{ sp.spNgayCapNhat }}</td>
+            <td class="animated fadeIn">{{ sp.spSoLuong }}</td>
+            <td class="animated fadeIn">{{ sp.lspTen }}</td>
+            <td class="animated fadeIn">{{ sp.nsxTen }}</td>
+            <td class="animated fadeIn">{{ sp.kmTen }}</td>
+            <td class="animated fadeIn">
+                <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `spMa` -->
+                <a href="sua.php?spMa={{ sp.spMa }}" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Sửa
+                </a>
+
+                <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `spMa` -->
+                <a onClick="javascript: return confirm('Bạn có muốn xóa dòng này?');" href="xoa.php?spMa={{ sp.spMa }}" class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i> Xóa
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+{# End Nội dung trong block content #}
